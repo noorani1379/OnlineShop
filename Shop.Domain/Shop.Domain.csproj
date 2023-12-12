@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IRepositories - Copy\**" />
+    <Compile Remove="ValueObjects - Copy\**" />
+    <EmbeddedResource Remove="IRepositories - Copy\**" />
+    <EmbeddedResource Remove="ValueObjects - Copy\**" />
+    <None Remove="IRepositories - Copy\**" />
+    <None Remove="ValueObjects - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Entities\" />
+    <Folder Include="IRepositories\" />
+    <Folder Include="ValueObectsj\" />
+  </ItemGroup>
+
+</Project>
