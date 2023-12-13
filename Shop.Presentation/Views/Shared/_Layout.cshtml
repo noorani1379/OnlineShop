@@ -1,49 +1,328 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Shop.Presentation</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Shop.Presentation.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Shop.Presentation</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 1402 - Shop.Presentation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <title>  فروشگاه پوشاک عارف-@ViewData["Title"] </title>
+
+    @await RenderSectionAsync("MetaTags", false)
+
+    <partial name="_HeaderReferences" />
+
+    @await RenderSectionAsync("Styles", false)
+
+    <style>
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #eee;
+            border-radius: 5px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #252525;
+            border-radius: 5px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+
+        .headerBackgroundSize {
+            background-size: 120%
+        }
+        /*shopBox*/
+        .singlePageProDesc {
+            width: 90px;
+        }
+
+        #describtion p {
+            color: #494949;
+            font-size: 14px;
+            line-height: 26px;
+        }
+
+        .blogText p {
+            color: #565656;
+            font-size: 10px;
+            line-height: 24px;
+        }
+
+        .papularBlogSingle {
+            display: inline-block;
+            width: 186px;
+        }
+
+        .shopCardHover .product-image {
+            /*display:block;*/
+            visibility: visible;
+            opacity: 1;
+            /*transition: all .4s ease*/
+        }
+
+        .shopCardHover .product-image-hover {
+            /*display:none;*/
+            visibility: hidden;
+            opacity: 0;
+            transition: all .4s ease
+        }
+
+        .shopCardHover:hover .product-image {
+            /*display: none;*/
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .shopCardHover:hover .product-image-hover {
+            /*display: block;*/
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .shopCardTitle {
+            width: auto;
+            display: block
+        }
+
+        .listShopCartTitle {
+            width: auto;
+            display: block
+        }
+
+        .productImgSinglePage {
+            min-height: 380px
+        }
+
+        .imgFavoriteSmPanel {
+            width: 132px;
+        }
+
+        .detFavoriteSmPanel {
+            margin-bottom: auto;
+        }
+
+            .detFavoriteSmPanel .priceFavoriteSmPanel {
+                /* margin: 8px auto;*/
+                margin-bottom: 15px
+            }
+
+        .deleteFavoriteSmPanel {
+            width: 30px;
+            height: 30px;
+        }
+
+        .seeProdctFavoriteSmPanel {
+            height: 30px;
+        }
+
+        .ProductTitleShopCart {
+            width: 165px
+        }
+
+        .ProductPriceShopCart {
+            width: auto
+        }
+
+
+        @@media screen and (min-width: 400px) {
+            .headerBackgroundSize {
+                background-size: 80%
+            }
+
+            .ProductTitleShopCart {
+                width: 291px;
+            }
+
+            .ProductPriceShopCart {
+                width: 110px;
+            }
+        }
+
+        @@media screen and (min-width: 768px) {
+            /* .headerSlider{
+                        height: 730px
+                    }
+
+                    .headerSliderImg {
+                        height: 100%
+                    }*/
+            .headerBackgroundSize {
+                background-size: 90%
+            }
+
+            #describtion p {
+                font-size: 16px;
+                line-height: 36px;
+            }
+
+            .blogText p {
+                font-size: 14px;
+                line-height: 33.6px;
+            }
+
+            .papularBlogSingle {
+                width: 246px
+            }
+
+            .shopCardTitle {
+                width: 283px;
+                display: inline-block
+            }
+
+            .listShopCartTitle {
+                width: 195px;
+                display: inline-block
+            }
+
+            .productImgSinglePage {
+                height: 522px;
+            }
+
+            .imgFavoriteSmPanel {
+                width: 100%;
+            }
+
+            .detFavoriteSmPanel {
+                margin-bottom: 10px;
+            }
+                /*.singlePageProDesc {
+                        width: 10%;
+                    }*/
+
+                .detFavoriteSmPanel .priceFavoriteSmPanel {
+                    /*margin: 0;*/
+                    margin-bottom: 0
+                }
+
+            .deleteFavoriteSmPanel {
+                width: 89px;
+                height: 38px;
+            }
+
+            .seeProdctFavoriteSmPanel {
+                height: 38px;
+            }
+
+            .ProductTitleShopCart {
+                width: 291px;
+            }
+
+            .ProductPriceShopCart {
+                width: 110px;
+            }
+        }
+
+        @@media screen and (min-width: 1537px) {
+            .headerBackgroundSize {
+                background-size: 80%
+            }
+        }
+
+        @@media screen and (min-width: 1900px) {
+            .headerBackgroundSize {
+                background-size: 70%
+            }
+        }
+
+        @@media screen and (min-width: 2200px) {
+            .headerBackgroundSize {
+                background-size: 60%
+            }
+        }
+
+        .blogCard:hover {
+            /* background-color:#252525;
+                    opacity:0.8*/
+            background: linear-gradient(136deg,rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3));
+            -webkit-backdrop-filter: blur(21px);
+            backdrop-filter: blur(21px);
+        }
+
+        .shoppingBag .shopBox {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(70px);
+            z-index: 99999999999
+        }
+
+        .shoppingBag:hover .shopBox {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(5px)
+        }
+
+    </style>
+
+</head>
+<body dir="rtl" onload="loadedPage()">
+
+    <header class="mx-auto" id="toTop">
+
+        <!-- Site Side Bar -->
+@*        @await Component.InvokeAsync("SiteSideBar")*@
+
+        @await RenderSectionAsync("Slider", false)
+
+    </header>
+
+    @RenderBody()
+
+    @*Site Footer*@
+    <partial name="_Footer" />
+
+    <partial name="_FooterReferences" />
+
+    <partial name="_Notification" />
+
+    @await RenderSectionAsync("Scripts", false)
+
+    <script>
+
+        $("#SearchIcon1").click(function () {
+
+            $("#Searchfiltre1").submit();
+
+        });
+
+        $("#SearchIcon").click(function () {
+
+            $("#Searchfiltre").submit();
+
+        });
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.classList.add("hidden");
+                body.style.overflow = "auto";
+            }
+            if (event.target == menu) {
+                menu.classList.add("opacity-0");
+                menu.classList.add("invisible");
+                body.style.overflow = "auto";
+            }
+        }
+
+        function loadedPage() {
+            // alert("Page is loaded");
+            document.querySelector(".leaflet-control-attribution").remove();
+        }
+
+        $(document).ready(function () {
+            $('#zarebin').on('click', function () {
+                $('#Searchfiltre1').submit();
+            });
+        });
+
+    </script>
+
 </body>
 </html>
+
+
